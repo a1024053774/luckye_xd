@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务流程</title>
+    <link rel="short icon" href="img/icon.png">
+    <link rel="stylesheet" href="public.css">
+    <style>
+        .banner a{
+            display: block;
+        }
+        .banner img{
+            width: 100%;
+            display: block;
+        }
+        .con img{
+            width: 85%;
+            display: block;
+            margin: 15px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>服务流程</p>
+    </div>
+    <div class="banner">
+        <a href="">
+            <img src="img/banner3.png" alt="">
+        </a>
+    </div>
+    <div class="con">
+        <img src="img/process.png" alt="" id="img">
+    </div>
+    <div class="btm">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="img/nav10.png" alt="">
+                    <p>小滴服务</p>
+                </a>
+            </li>
+            <li>
+                <a href="startupproject.html">
+                    <img src="img/nav20.png" alt="">
+                    <p>创业项目</p>
+                </a>
+            </li>
+            <li>
+                <a href="serviceprocess.html">
+                    <img src="img/nav31.png" alt="">
+                    <p style="color: #FF0000;">服务流程</p>
+                </a>
+            </li>
+            <li>
+                <a href="platformpresence.html">
+                    <img src="img/nav40.png" alt="">
+                    <p>平台风采</p>
+                </a>
+            </li>
+            <li>
+                <a href="mydrops.html">
+                    <img src="img/nav50.png" alt="">
+                    <p>我的小滴</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="js/public.js"></script>
+    <script>
+        var img=document.getElementById("img");
+
+        str("get","getimg","",function(retrunStr){
+            console.log(retrunStr);
+            img.src=retrunStr.data
+        })
+    </script>
+</body>
+</html>

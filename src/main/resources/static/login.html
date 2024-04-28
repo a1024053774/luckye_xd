@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="short icon" href="img/icon.png">
+    <link rel="stylesheet" href="public.css">
+    <style>
+
+        .pic{
+            padding: 90px 0 50px;
+            text-align: center;
+        }
+        .form input{
+            display: block;
+            width: 300px;
+            height: 50px;
+            border: 1px solid #CCCCCC;
+            margin: 0 auto;
+        }
+        .txt{
+            /* 圆角 */
+            /* 四个值 第一个值代表左上、第二个值代表右上、第三个值代表右下、第四个值代表左下*/
+            border-radius: 8px 8px 0 0;
+        }
+        .pwd{
+            border-radius: 0 0 8px 8px;
+        }
+        .form button{
+            width: 300px;
+            height: 50px;
+            background-color: #1C6DC0;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #CCCCCC;
+            display: block;
+            margin: 20px auto 0;
+            font-size: 18px;
+            color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <p>登录</p>
+</div>
+<div class="pic">
+    <img src="img/head.png" alt="">
+</div>
+<div class="form">
+    <form action="" method="">
+        <input type="text"  value="admin" class="txt">
+        <input type="password" value="admin" class="pwd">
+        <button type="button" onclick="login()">登录</button>
+    </form>
+</div>
+
+<script src="js/public.js"></script>
+<script>
+
+
+
+    function login(){
+        // 获取账户名和密码
+        var txt=document.getElementsByClassName("txt")[0].value;
+        var pwd=document.getElementsByClassName("pwd")[0].value;
+        var par="username="+txt+"&password="+pwd;
+        str("post","login",par,function(retrunStr){
+            if(retrunStr.code==1){
+                location.href="index.html"
+            }else {
+                alert("你输入的账户名或者密码错误，请重新输入！！！")
+            }
+        })
+    }
+</script>
+</body>
+</html>

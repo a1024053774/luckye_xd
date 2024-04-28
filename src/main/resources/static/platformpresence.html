@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平台风采</title>
+    <link rel="short icon" href="img/icon.png">
+    <link rel="stylesheet" href="public.css">
+    <style>
+        .banner a {
+            display: block;
+        }
+
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+
+        .con {
+            padding: 16px 25px 0;
+        }
+
+        .con h1 {
+            font-size: 18px;
+            line-height: 48px;
+            color: #FF0000;
+            /* 边框 */
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        .con h3 {
+            font-size: 14px;
+        }
+
+        .con p {
+            font-size: 12px;
+            line-height: 24px;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <p>平台风采</p>
+    </div>
+    <div class="banner">
+        <a href="">
+            <img src="img/banner4.png" alt="">
+        </a>
+    </div>
+    <div class="con">
+        <h1 id="h1"></h1>
+        <h3 id="h3"></h3>
+        <p id="p"></p>
+    </div>
+
+    <div class="btm">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="img/nav10.png" alt="">
+                    <p>小滴服务</p>
+                </a>
+            </li>
+            <li>
+                <a href="startupproject.html">
+                    <img src="img/nav20.png" alt="">
+                    <p>创业项目</p>
+                </a>
+            </li>
+            <li>
+                <a href="serviceprocess.html">
+                    <img src="img/nav30.png" alt="">
+                    <p>服务流程</p>
+                </a>
+            </li>
+            <li>
+                <a href="platformpresence.html">
+                    <img src="img/nav41.png" alt="">
+                    <p style="color: #FF0000;">平台风采</p>
+                </a>
+            </li>
+            <li>
+                <a href="mydrops.html">
+                    <img src="img/nav50.png" alt="">
+                    <p>我的小滴</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="js/public.js"></script>
+    <script>
+        var h1 = document.getElementById("h1");
+        var h3 = document.getElementById("h3");
+        var p = document.getElementById("p");
+        //创建一个http协议的请求对象
+        var obj=new XMLHttpRequest();
+
+        //传递两个参数
+        //obj.open("get","http://81.69.249.76:8082/aboutus");
+        obj.open("get","http://localhost:8080/aboutus");
+
+        //发送数据
+        obj.send()
+        console.log(obj);
+        //当服务器发送请求后，我们做出的一些相应
+        obj.onreadystatechange=function(){
+            if(obj.readyState==4&&obj.status==200){
+                console.log(obj.responseText);
+                var retrunStr=JSON.parse(obj.responseText);
+                console.log(retrunStr);
+                // innerHTML 修改标签内容
+                h1.innerHTML=retrunStr.data.title;
+                h3.innerHTML=retrunStr.data.subTitle;
+                p.innerHTML=retrunStr.data.info;
+            }
+        }
+        str("get", "aboutus", "", function (retrunStr) {
+            console.log(retrunStr);
+            h1.innerHTML = retrunStr.data.title;
+            h3.innerHTML = retrunStr.data.subTitle;
+            p.innerHTML = retrunStr.data.info;
+            console.log(obj);
+        })
+        
+    </script>
+</body>
+
+</html>
