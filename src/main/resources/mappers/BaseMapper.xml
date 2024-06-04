@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luckye.mapper.BaseMapper">
+
+    <!-- Insert operation -->
+    <insert id="insert" parameterType="com.luckye.pojo.User">
+        <!-- SQL for insert operation -->
+    </insert>
+
+    <!-- Delete operation -->
+    <delete id="delete" parameterType="int">
+        <!-- SQL for delete operation -->
+    </delete>
+
+    <!-- Update operation -->
+    <update id="update" parameterType="com.luckye.pojo.User">
+        <!-- SQL for update operation -->
+    </update>
+
+    <!-- Select by ID operation -->
+    <select id="selectById" parameterType="int" resultType="com.luckye.pojo.User">
+        <!-- SQL for select by ID operation -->
+    </select>
+
+    <!-- Select all operation -->
+    <select id="selectAll" resultType="com.luckye.pojo.User">
+        <!-- SQL for select all operation -->
+    </select>
+
+</mapper>

@@ -1,11 +1,14 @@
 package com.luckye.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 /*
-*    提取mapper接口的共性
-*
-*   泛型：参数化类型
-*  */
+ *    提取mapper接口的共性
+ *
+ *   泛型：参数化类型
+ *  */
+@Mapper
 public interface BaseMapper<T> {
 
     /* 新增方法 */
